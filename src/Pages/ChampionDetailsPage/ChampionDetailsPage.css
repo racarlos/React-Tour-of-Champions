@@ -1,0 +1,83 @@
+ .splash{
+    height: 450px;
+    object-fit : contain;
+    background-repeat: no-repeat;
+    background-position : top;
+}
+
+.detail-name{
+    font-size: 60px;
+    font-family: fantasy;
+    font-style: oblique;
+    font-weight: 500;
+    margin-bottom: 0;
+}
+
+.detail-title{
+    font-family: fantasy;
+    font-style: oblique;
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.detail-lore{
+    font-size: 18px;
+    font-weight: 400;
+}
+
+
+.detail-tag{
+    padding: auto;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.detail-icon{
+    height: 150px;
+}
+
+.header{
+    font-size: 30px;
+    font-weight: 500;
+    font-family: fantasy;
+    color: white;
+}
+
+.spell-row{
+    border: solid 2px #293139;
+}
+
+.spell-icon{
+    width: 140%;
+}
+
+.spell-name{
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.spell-description{ 
+    font-size: 19px;
+    font-weight: 400;
+}
+
+.tip-description{
+    font-size: 17px;
+    font-weight: 500;
+    color:  white;
+}
+
+.carousel-container{
+    height: auto;
+    width: auto;
+
+}
+
+.carousel-item{
+    height: 600px;
+    width: auto;
+}
+
+.image-holder{
+    object-fit: cover;
+}

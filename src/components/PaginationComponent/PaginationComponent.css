@@ -1,0 +1,18 @@
+.page-link{
+    background-color: #212529 !important;
+    margin: 0;
+    border: #212529 solid;
+    font-size: large;
+    font-weight: 500;
+    color: #ffb900;
+}
+
+.page-link:hover{
+    border: #ffb900 solid 2px;
+    color: white;
+}
+
+.page-link:disabled{
+    background-color: #212529 !important;
+    border: #212529 solid;
+}

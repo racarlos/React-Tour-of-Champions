@@ -1,0 +1,35 @@
+.light-gray-bg{
+    background-color: #32445a;
+}
+
+.modal-content{
+    border: 0px;
+}
+
+.modal-body{
+    border: 0px;
+}
+
+.item-modal-title{
+    color: white;
+    padding: 0;
+    margin: 0;
+    font-weight: 700;
+}
+
+.item-modal-cost{
+
+    font-weight: 600;
+}
+
+.item-modal-body{
+    border-left : solid 2px #293139;
+    border-right : solid 2px #293139;
+    border-bottom : solid 2px #293139;
+}
+
+.item-image{
+    margin: 0;
+    padding: 0;
+    border: solid 1px #d0a85c ;
+}

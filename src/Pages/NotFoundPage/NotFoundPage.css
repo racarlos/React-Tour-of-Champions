@@ -1,0 +1,27 @@
+.not-found-image{
+    height: 450px;
+    width: auto;
+}
+
+.not-found-text{
+    text-align: center;
+    color: #ffb900;
+    font-weight: 600;
+    font-size: 25px;
+}
+
+.not-found-button{
+    width: 120px;
+    color: white;
+    font-weight: 450;
+    background-color: #d0a85c;
+    border: solid #32445a 2px;
+}
+
+
+.not-found-button:hover{
+    border: solid #d0a85c 2px;
+    background-color: #ffb900;
+    transform: scale(1.1) perspective(1)
+}
+

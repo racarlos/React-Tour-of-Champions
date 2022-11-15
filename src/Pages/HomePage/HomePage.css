@@ -1,0 +1,50 @@
+.banner {
+	height: 60vh;
+	background-image: url('/public/images/banner.png');
+	background-size: cover;
+	background-position: center;
+	padding: 0;
+	border: 0;
+	margin: 0;
+}
+
+.greeting{
+	font-family: fantasy;
+	font-style: italic;
+	font-size: 9vh;
+	font-weight: 800;
+	letter-spacing: 0.07em;
+	color: white;
+}
+	
+.sub-greeting{		
+	color: white;
+	margin: 0 auto;
+	font-weight: 500;
+}
+
+.click{
+	font-family: fantasy;
+	font-style: italic;
+	font-size: 5vh;
+	font-weight: 400;
+	color: #ffb900;
+	letter-spacing: 0.02em;
+	margin: auto;
+}
+
+.btn-home{
+	border: 2px #ffb900 solid;
+	border-radius: 10px 0%;
+	text-align: center;
+	cursor: pointer;
+	font-size: 20px;
+	font-weight: 300;
+	color: white;
+	font-family: fantasy;
+	width: 150px;
+}
+
+.btn-home:hover{
+	background-color: #ffb900;
+}

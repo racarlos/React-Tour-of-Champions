@@ -1,0 +1,34 @@
+.ctrl-btn{
+    color: white;
+    font-weight: 450;
+    background-color: #32445a;
+    border: solid #32445a 1px;
+}
+
+.ctrl-btn:hover{
+    background-color: #d0a85c;
+    border: solid #d0a85c 1px;
+    transform: scale(1.1) perspective(1)
+}
+
+
+.role{
+    width: 30%;
+}
+
+.search{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+label {
+    text-align: right;
+    clear: both;
+    float:left;
+    margin-right:20px;
+}
+
+.loading-spinner{
+    width: 100px;
+    height: 100px;
+}
