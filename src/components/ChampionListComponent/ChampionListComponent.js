@@ -22,6 +22,8 @@ export const ChampionListComponent = ({champions}) => {
 	const indexOfFirstItem = indexOfLastItem - itemsPerPage;
 	const currentChampions = Object.entries(champions).slice(indexOfFirstItem, indexOfLastItem)
 
+  const numberOfPages = Math.ceil(Object.keys(champions).length / itemsPerPage);
+
   const paginate = (pageNumber) => {
 		setCurrentPage(pageNumber);
 	}
@@ -59,13 +61,15 @@ export const ChampionListComponent = ({champions}) => {
         ))}
       </Row>
 
-      <Row>
-				<PaginationComponent 
-					itemsPerPage = {itemsPerPage} 
-					totalItems = {Object.keys(champions).length} 
-					currentPage = {currentPage}
-					paginate={paginate}/>
-			</Row>
+      { numberOfPages > 1 && 
+         <Row>
+          <PaginationComponent 
+            itemsPerPage = {itemsPerPage} 
+            totalItems = {Object.keys(champions).length} 
+            currentPage = {currentPage}
+            paginate={paginate}/>
+        </Row>
+      }
 
     </Container>
   )

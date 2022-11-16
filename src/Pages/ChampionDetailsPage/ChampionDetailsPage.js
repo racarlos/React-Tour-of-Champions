@@ -37,9 +37,9 @@ export const ChampionDetailsPage = (props) => {
 	if(isLoading){
 		return(
 			<div className="text-center align-middle h-100 w-100 mt-5"> 
-					<Spinner animation="border" className='loading-spinner mt-5' variant="warning">
-						<span className="visually-hidden">Loading...</span>
-					</Spinner>
+				<Spinner animation="border" className='loading-spinner mt-5' variant="warning">
+					<span className="visually-hidden">Loading...</span>
+				</Spinner>
 			</div>
 		);
 	}
@@ -81,9 +81,11 @@ export const ChampionDetailsPage = (props) => {
 					<Row className='p-0 mb-4'>
 						<Stack direction="horizontal" gap={2}>
 							{champion.tags?.map((value) => (
-								<Badge className="detail-tag" bg="primary" key={value}>
-									{value}
-								</Badge>
+								<a href={`/champions?selectedRole=${value}`}>
+									<Badge className="detail-tag" bg="primary" key={value}>
+										{value}
+									</Badge>
+								</a>
 							))}
 						</Stack>
 					</Row>

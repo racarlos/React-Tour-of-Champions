@@ -1,5 +1,5 @@
 import React from 'react'
-import { Badge, Image } from 'react-bootstrap';
+import { Image } from 'react-bootstrap';
 
 import '../../index.css'
 import './ChampionCardComponent.css'
