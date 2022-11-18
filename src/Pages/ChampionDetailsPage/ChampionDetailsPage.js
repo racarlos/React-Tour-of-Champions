@@ -22,6 +22,7 @@ export const ChampionDetailsPage = (props) => {
 	const spellUrl = "http://ddragon.leagueoflegends.com/cdn/12.21.1/img/spell";
 
 	useEffect(() => {
+		document.title = championId;
 
 		const getChampions = async () => {
 			setIsLoading(true);

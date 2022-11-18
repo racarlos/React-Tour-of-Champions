@@ -29,15 +29,15 @@ export const HomePage = (props) => {
 
 					<div className="row text-center">
 						<div className="col">
-							<a className="btn btn-home mx-3" width="40px" href="/champions">
+							<a className="btn btn-home mx-3" data-test="navButton-champions" href="/champions">
 								Champions
 							</a>
 
-							<a className="btn btn-home mx-3" href="/items">
+							<a className="btn btn-home mx-3" data-test="navButton-champions" href="/items">
 								Items
 							</a>
 
-							<a className="btn btn-home mx-3" href="/maps">
+							<a className="btn btn-home mx-3" data-test="navButton-items" href="/maps">
 								Maps
 							</a>
 						</div>

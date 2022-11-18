@@ -29,6 +29,7 @@ export const ChampionListComponent = ({champions}) => {
 	}
 
   useEffect(() => {
+    document.title = "Champions";
 
     const reloadChampions = async() => {
       setIsLoading(true);

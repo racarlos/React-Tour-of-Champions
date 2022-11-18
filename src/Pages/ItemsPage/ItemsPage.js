@@ -15,6 +15,9 @@ export const ItemsPage = () => {
   const [modalShow, setModalShow] = useState(false);
   
 	useEffect(() => {
+
+    document.title = 'Items';
+
 		const getItems = async() => {
 			const receivedChampions = await itemService.getItems();
 			setItems(receivedChampions) 
