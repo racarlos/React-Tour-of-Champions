@@ -2,7 +2,10 @@ import axios  from "axios";
 
 export const itemService = { 
 
-    itemsUrl: "http://ddragon.leagueoflegends.com/cdn/12.21.1/data/en_US/item.json",
+
+    // itemsUrl: "http://ddragon.leagueoflegends.com/cdn/12.21.1/data/en_US/item.json",
+    itemsUrl: "http://ddragon.leagueoflegends.com/cdn/12.22.1/data/en_US/item.json",
+
 
     getItems: async function() {
         try{
