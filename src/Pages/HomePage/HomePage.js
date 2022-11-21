@@ -4,6 +4,8 @@ import "./HomePage.css"
 
 export const HomePage = (props) => {
 
+    document.title = 'Home';
+	
 	return (
 		<>
 			<div className="banner">
@@ -33,11 +35,11 @@ export const HomePage = (props) => {
 								Champions
 							</a>
 
-							<a className="btn btn-home mx-3" data-test="navButton-champions" href="/items">
+							<a className="btn btn-home mx-3" data-test="navButton-items" href="/items">
 								Items
 							</a>
 
-							<a className="btn btn-home mx-3" data-test="navButton-items" href="/maps">
+							<a className="btn btn-home mx-3" data-test="navButton-maps" href="/maps">
 								Maps
 							</a>
 						</div>

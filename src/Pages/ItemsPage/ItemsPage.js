@@ -32,7 +32,7 @@ export const ItemsPage = () => {
   }
 
   return (
-    <Container>
+    <Container data-test='item-list'>
       <Row className='mt-4'>
         {items.map((item,index) => (
           <Col className='d-flex justify-content-center' key={index}>

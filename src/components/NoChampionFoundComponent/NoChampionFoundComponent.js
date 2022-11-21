@@ -5,9 +5,14 @@ import './NoChampionFoundComponent.css'
 
 export const NoChampionFoundComponent = () => {
   return (
-    <Container className='mt-5'>
+    <Container className='mt-5' >
         <Row className='justify-content-center'>
-            <img src='/images/empty-list.png' className='non-found-image' alt='No Champion Found'/>
+          
+            <img src='/images/empty-list.png' 
+              className='non-found-image' 
+              data-test='no-champion-image' 
+              alt='No Champion Found'
+            />
         </Row>
 
         <Row className='mt-3'>

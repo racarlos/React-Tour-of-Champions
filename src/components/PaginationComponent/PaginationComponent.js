@@ -31,7 +31,7 @@ export const PaginationComponent = ({itemsPerPage, totalItems, currentPage, pagi
 	}
 
 	return (
-		<Pagination className='justify-content-center'>
+		<Pagination className='justify-content-center' data-test="pagination-control">
 
 			<Pagination.Prev 
 				id='myid'

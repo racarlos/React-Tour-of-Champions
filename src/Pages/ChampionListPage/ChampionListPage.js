@@ -15,8 +15,6 @@ export const ChampionListPage = (props) => {
 	const searchString = searchParams.get('searchString');
 	const selectedRole = searchParams.get('selectedRole');
 
-
-
 	const roles = ["Assassin","Fighter","Mage","Marksman","Support","Tank"];
 
 	useEffect(() => {
@@ -54,7 +52,9 @@ export const ChampionListPage = (props) => {
 						<div className="input-group input-group-sm w-25">
 							<Form.Select 
 								className="input box form-control form-select" 
-								onChange={handleRoleChange}>
+								onChange={handleRoleChange}
+								data-test="role-select"
+								>
 
 								<option key="All Roles" value=""> All Roles </option>
 								{roles.map((role) => (
@@ -73,6 +73,7 @@ export const ChampionListPage = (props) => {
 								className="input box form-control input-sm" 
 								placeholder="Search for a Champion" 
 								onChange={handleSearchStringChange}
+								data-test="name-input"
 							/>
 								
 						</div> 
@@ -80,7 +81,7 @@ export const ChampionListPage = (props) => {
 				</Form>
 			</Row>
 
-			<Row className='mt-3'>
+			<Row className='mt-3' data-test='champion-list'>
 				<ChampionListComponent champions={champions}/>
 			</Row>
 

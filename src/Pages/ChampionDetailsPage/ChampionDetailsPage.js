@@ -98,7 +98,7 @@ export const ChampionDetailsPage = (props) => {
 				</Col>
 			</Row>
 
-			<Row className='px-5'>
+			<Row className='px-5' data-test='spell-container'>
 
 				<p className="header">
 					CHAMPION ABILITIES
