@@ -5,7 +5,6 @@ describe('Champions', () => {
 
   context("Champion List Page", () => {
     
-    
     beforeEach(() => {
       cy.visit("http://localhost:3000/champions")
       cy.getByData('role-select').select('All Roles')
@@ -34,15 +33,21 @@ describe('Champions', () => {
       cy.contains('the Frost Archer')
     })
 
-    it('Search for a champion by Name', () => {
-      cy.getByData('name-input').type('Akali')
+    it('Filter champion list by Name', () => {
+      cy.typeInSearch('Ana')
 
-      cy.contains('Akali')
-      cy.contains('the Rogue Assassin')
+      cy.contains('Diana')
+      cy.contains('Scorn of the Moon')
+
+      cy.contains('Morgana')
+      cy.contains('the Fallen')
+
+      cy.contains('Tristana')
+      cy.contains('the Yordle Gunner')
     })
 
-    it('Search for a champion by Role', () => {
-      cy.getByData('role-select').select('Marksman').invoke("val").should("eq", "Marksman");
+    it('Filter champion list by Role', () => {
+      cy.selectRole('Marksman')
       
       cy.contains('Akshan')
       cy.contains('the Rogue Sentinel')
@@ -54,11 +59,15 @@ describe('Champions', () => {
       cy.contains('the Prodigal Explorer')
     })
 
-    it('Search for a champion by Name and Role', () => {
-      cy.getByData('name-input').clear().type('Akali')
+    it('Filter champion list by Name and Role', () => {
+      cy.typeInSearch('Ya')
+      cy.selectRole('Fighter')
 
-      cy.contains('Akali')
-      cy.contains('the Rogue Assassin')
+      cy.contains('Yasuo')
+      cy.contains('the Unforgiven')
+
+      cy.contains('Qiyana')
+      cy.contains('Empress of the Elements')
     })
 
     it('Search for a non existent Champion', () => {
@@ -68,7 +77,6 @@ describe('Champions', () => {
     })
   
   })
-
 
   context("Champion Detail Page", () => { 
 
@@ -91,15 +99,10 @@ describe('Champions', () => {
 
       cy.getByData('pagination-control').find('.page-link').each((pageLink) => {        
         cy.wait(500).then(() => {
-          
           cy.getByData('champion-list').should('exist')
-          
-
           pageLink[0].click()
         })
       })
-
-
     })
 
   })

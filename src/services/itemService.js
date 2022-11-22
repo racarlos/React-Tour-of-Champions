@@ -5,7 +5,24 @@ export const itemService = {
 
     itemsUrl: "http://ddragon.leagueoflegends.com/cdn/12.21.1/data/en_US/item.json",
 
-    getItems: async function() {
+
+    filterByName: function(list, searchString){
+        
+        searchString = searchString.toLowerCase().trim();
+
+		let filteredList = list.filter((data) => {
+
+            let tags = data.tags.map((tag) => tag.toLowerCase())
+
+            if(data.name.toLowerCase().includes(searchString) || tags.includes(searchString)){
+                return data
+            }
+        })
+
+        return filteredList;
+    },
+
+    getItems: async function(searchString) {
         try{
 
             const res = await axios.get(this.itemsUrl);
@@ -18,10 +35,14 @@ export const itemService = {
                 
                 // Add only items buyable from shop
                 if(itemData.gold && itemData.gold.purchasable){
-                receivedItems.push(itemData);
+                    receivedItems.push(itemData);
                 }
             });
-
+                        
+            // Filter by name/searchstring
+            if(searchString){
+                receivedItems = this.filterByName(receivedItems,searchString);
+            }
 
             return receivedItems;
         } catch(error){

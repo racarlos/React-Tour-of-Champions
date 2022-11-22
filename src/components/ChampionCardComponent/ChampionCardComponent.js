@@ -12,7 +12,7 @@ export const ChampionCardComponent = ({champion}) => {
 	
   return (
 	<a href={`champions/${champion.id}`} className='link'>
-		<Card className='champion-card mb-4'>
+		<Card className='champion-card mb-4' data-test={champion.id}>
 
 		<Card.Img variant='top' className='champion-card-img-top' src={loadingImgUrl + champion.id + '_0.jpg'}  alt="Champion splash "/>
 

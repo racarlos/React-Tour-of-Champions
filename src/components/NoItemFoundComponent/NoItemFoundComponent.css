@@ -1,0 +1,11 @@
+.non-found-image{
+    width: 300px;
+}
+
+.non-found-text{
+    text-align: center;
+    color: #ffb900;
+    font-weight: 600;
+    font-size: 25px;
+}
+
