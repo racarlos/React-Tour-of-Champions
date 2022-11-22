@@ -1,7 +1,7 @@
 /// <reference types="cypress"/>
 
 
-describe('empty spec', () => {
+describe('Items', () => {
 
 
   context("Item List Page", () => { 
@@ -32,6 +32,23 @@ describe('empty spec', () => {
       cy.contains('3100')
     })
 
+
+    it('Filter Item List by Name', () => {
+      cy.typeInSearch('pi')
+      cy.contains('Pickaxe').should("exist")
+      cy.contains('Vampiric Scepter').should("exist")
+      cy.contains('Spirit Visage').should("exist")
+    })
+
+    it('Search for an item', () => {
+      cy.typeInSearch('ravenous')
+      cy.contains('Ravenous Hydra').should("exist")
+    })
+
+    it('Search for a non existent item', () => {
+      cy.typeInSearch('tax refund')
+      cy.contains("No Item fits this search crtieria.")
+    })
 
 
   })
