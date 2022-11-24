@@ -9,6 +9,7 @@ describe('Items', () => {
       cy.visit("http://localhost:3000/items")
     })
 
+
     it('Check if Page Title and Elements Exist', () => {
       cy.title().should('eq', 'Items')
       cy.getByData('item-list').should('exist')

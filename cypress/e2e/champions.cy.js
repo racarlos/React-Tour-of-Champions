@@ -19,7 +19,7 @@ describe('Champions', () => {
     })
 
     it('Check if there are exactly 10 champions in the first page', () => {
-      cy.getByData('champion-list').find('.champion-card').should('have.length', 10)
+      cy.getByData('champion-list').find('.champion-card').should('have.length.', 10)
     })
 
     it('Check If Champions exist', () => {
@@ -75,6 +75,16 @@ describe('Champions', () => {
       cy.getByData('no-champion-image').should("exist")
       cy.contains("No Champion fits this search crtieria.")
     })
+
+    it.only('Each page must have at least 1 Champion Card', () => {
+
+      cy.getByData('pagination-control').find('.page-link').each((pageLink) => {        
+        cy.wait(500).then(() => {
+          cy.getByData('champion-list').should('exist').find('.champion-card').should('have.length.least', 1)
+          pageLink[0].click()
+        })
+      })
+    })
   
   })
 
@@ -95,15 +105,7 @@ describe('Champions', () => {
       cy.getByData('spell-container').find('.spell-row').should('have.length', 4)
     })
     
-    it.only('Look for a champion in the list and go to it', () => {
 
-      cy.getByData('pagination-control').find('.page-link').each((pageLink) => {        
-        cy.wait(500).then(() => {
-          cy.getByData('champion-list').should('exist')
-          pageLink[0].click()
-        })
-      })
-    })
 
   })
 })

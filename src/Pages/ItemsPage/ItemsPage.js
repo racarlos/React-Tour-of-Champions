@@ -72,9 +72,9 @@ export const ItemsPage = () => {
         <NoItemFoundComponent/>
       : 
         <>
-          <Row className='mt-4' data-test='item-list'>
+          <Row className='mt-4 d-flex justify-content-start ' data-test='item-list'>
             {items.map((item,index) => (
-              <Col className='d-flex justify-content-center' key={index}>
+              <Col xs={1} className='d-flex align-items-stretch' key={index}>
                 <ItemCardComponent item={item} onClick={() => launchModal(item)}/>
               </Col>
             ))}

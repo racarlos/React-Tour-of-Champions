@@ -54,7 +54,8 @@ export const ChampionListComponent = ({champions}) => {
   return (
     // Outer Container
     <Container className="text-light">
-      <Row className="">
+      <Row className=''>
+
         {currentChampions.map(([key,value]) => (
           <Col className='d-flex justify-content-center' key={key}>
             <ChampionCardComponent champion={value} />
