@@ -1,9 +1,11 @@
 import { championService } from "../../services/championService";
 import { React, useState, useEffect } from "react";
 import { Container, Form, Row } from "react-bootstrap";
+
 import  { useSearchParams} from 'react-router-dom';
 
 import { ChampionListComponent } from "../../components/ChampionListComponent/ChampionListComponent";
+import useLocalStorage from "../../hooks/useLocalStorage";
 import './ChampionListPage.css'
 
 
@@ -11,6 +13,7 @@ export const ChampionListPage = (props) => {
 
 	const [champions, setChampions] = useState([]);
 	const [searchParams, setSearchParams] = useSearchParams({searchString: '', selectedRole: ''});
+	const [championName, setChampionName]  = useLocalStorage('championName','');
 
 	const searchString = searchParams.get('searchString');
 	const selectedRole = searchParams.get('selectedRole');
@@ -31,6 +34,7 @@ export const ChampionListPage = (props) => {
 	const handleSearchStringChange = (e) => {
 		if(e.target.value !== undefined){
 			setSearchParams({searchString : e.target.value, selectedRole: selectedRole});
+			setChampionName(e.target.value)
 		}
 	}
 
@@ -81,7 +85,7 @@ export const ChampionListPage = (props) => {
 				</Form>
 			</Row>
 
-			<Row className='mt-3' data-test='champion-list'>
+			<Row className='mt-3'>
 				<ChampionListComponent champions={champions}/>
 			</Row>
 

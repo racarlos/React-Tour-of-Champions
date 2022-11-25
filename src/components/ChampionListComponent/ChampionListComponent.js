@@ -53,7 +53,7 @@ export const ChampionListComponent = ({champions}) => {
   }
   return (
     // Outer Container
-    <Container className="text-light">
+    <Container className="text-light" data-test='champion-list'>
       <Row className=''>
 
         {currentChampions.map(([key,value]) => (

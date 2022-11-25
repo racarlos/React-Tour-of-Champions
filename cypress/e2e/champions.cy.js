@@ -1,12 +1,12 @@
 /// <reference types="cypress"/>
 
-
 describe('Champions', () => {
 
   context("Champion List Page", () => {
     
     beforeEach(() => {
       cy.visit("http://localhost:3000/champions")
+      cy.clearLocalStorage();
       cy.getByData('role-select').select('All Roles')
       cy.getByData('name-input').clear()
     })
@@ -19,7 +19,7 @@ describe('Champions', () => {
     })
 
     it('Check if there are exactly 10 champions in the first page', () => {
-      cy.getByData('champion-list').find('.champion-card').should('have.length.', 10)
+      cy.getByData('champion-list').find('.champion-card').should('have.length', 10)
     })
 
     it('Check If Champions exist', () => {
@@ -73,10 +73,11 @@ describe('Champions', () => {
     it('Search for a non existent Champion', () => {
       cy.getByData('name-input').clear().type('hahahah')
       cy.getByData('no-champion-image').should("exist")
+      cy.getByData('champion-list').should('not.exist')
       cy.contains("No Champion fits this search crtieria.")
     })
 
-    it.only('Each page must have at least 1 Champion Card', () => {
+    it('Each page must have at least 1 Champion Card', () => {
 
       cy.getByData('pagination-control').find('.page-link').each((pageLink) => {        
         cy.wait(500).then(() => {
@@ -85,6 +86,7 @@ describe('Champions', () => {
         })
       })
     })
+
   
   })
 
@@ -105,7 +107,27 @@ describe('Champions', () => {
       cy.getByData('spell-container').find('.spell-row').should('have.length', 4)
     })
     
+    it('Check if Local Storage Items: Name and Title Match actual',() => {
+      cy.get(':nth-child(10) > .page-link').click()
 
+      cy.getByData('Nilah').should('exist').click()
+      
+      cy.get('.splash').should('exist').then(() => {
+        expect(JSON.parse(localStorage.getItem('name'))).to.equal('Nilah')
+        expect(JSON.parse(localStorage.getItem('title'))).to.equal('the Joy Unbound')
+      })
+    })
+
+    it('Check if Local Storage Items are cleared',() => {
+
+      cy.get(':nth-child(8) > .page-link').click()
+      cy.getByData('Kindred').should('exist').click()
+
+      cy.clearLocalStorage().should((ls) => {
+        expect(ls.getItem('name')).to.be.null
+        expect(ls.getItem('title')).to.be.null
+      })
+    })
 
   })
 })

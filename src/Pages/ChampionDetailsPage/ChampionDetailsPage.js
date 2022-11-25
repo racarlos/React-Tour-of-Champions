@@ -6,8 +6,8 @@ import { useEffect, useState } from 'react';
 import { SkinCarouselComponent } from "./SkinCarouselComponent";
 import { Badge, Col, Container, Row, Stack, Spinner } from 'react-bootstrap';
 
-
 import { removeMarkup } from "../../utils/utilFunctions";
+import useLocalStorage from "../../hooks/useLocalStorage";
 import './ChampionDetailsPage.css'
 import '../../index.css'
 
@@ -16,6 +16,8 @@ export const ChampionDetailsPage = (props) => {
 	const {championId} = useParams();
 	const [champion, setChampion] = useState(null);	
 	const [isLoading, setIsLoading] = useState(false);
+	const [championName, setChampionName] = useLocalStorage('name','');
+	const [championTitle, setChampionTitle] = useLocalStorage('title','');
 
 	const splashUrl = "http://ddragon.leagueoflegends.com/cdn/img/champion/splash";
 	const squareUrl = "http://ddragon.leagueoflegends.com/cdn/12.21.1/img/champion";
@@ -27,8 +29,11 @@ export const ChampionDetailsPage = (props) => {
 		const getChampions = async () => {
 			setIsLoading(true);
 			const res = await axios.get(`http://ddragon.leagueoflegends.com/cdn/12.21.1/data/en_US/champion/${championId}.json`);
-			setChampion(res.data.data[championId]);
 			
+			setChampion(res.data.data[championId]);
+			setChampionTitle(res.data.data[championId].title)
+			setChampionName(res.data.data[championId].name)
+
 			await sleep(1000);
 			setIsLoading(false);
 		}
@@ -74,7 +79,7 @@ export const ChampionDetailsPage = (props) => {
 							</Row>
 						</Col>
 
-						<Col className='d-flex justify-content-end pt-2'>
+						<Col className='d-flex justify-content-center pt-2'>
 							<img className='detail-icon' src={`${squareUrl}/${champion.id}.png`} alt="Champion icon"/>
 						</Col>
 					</Row>
