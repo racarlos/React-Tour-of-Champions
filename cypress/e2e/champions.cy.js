@@ -35,6 +35,7 @@ describe('Champions', () => {
 
     it('Filter champion list by Name', () => {
       cy.typeInSearch('Ana')
+      cy.wait(1000)
 
       cy.contains('Diana')
       cy.contains('Scorn of the Moon')
@@ -48,6 +49,7 @@ describe('Champions', () => {
 
     it('Filter champion list by Role', () => {
       cy.selectRole('Marksman')
+      cy.wait(1000)
       
       cy.contains('Akshan')
       cy.contains('the Rogue Sentinel')
@@ -62,6 +64,7 @@ describe('Champions', () => {
     it('Filter champion list by Name and Role', () => {
       cy.typeInSearch('Ya')
       cy.selectRole('Fighter')
+      cy.wait(1000)
 
       cy.contains('Yasuo')
       cy.contains('the Unforgiven')
@@ -72,6 +75,8 @@ describe('Champions', () => {
 
     it('Search for a non existent Champion', () => {
       cy.getByData('name-input').clear().type('hahahah')
+      cy.wait(1000)
+
       cy.getByData('no-champion-image').should("exist")
       cy.getByData('champion-list').should('not.exist')
       cy.contains("No Champion fits this search crtieria.")
@@ -86,8 +91,6 @@ describe('Champions', () => {
         })
       })
     })
-
-  
   })
 
   context("Champion Detail Page", () => { 
@@ -98,9 +101,9 @@ describe('Champions', () => {
 
     it('Go To A Champion in First Page', () => {
       cy.contains("Aatrox").click()
+      cy.wait(1000)
       cy.title().should('eq', 'Aatrox')
     })
-
     
     it('Go To A Champion and check if they have 4 skills', () => {
       cy.contains("Anivia").click()
@@ -109,14 +112,21 @@ describe('Champions', () => {
     
     it('Check if Local Storage Items: Name and Title Match actual',() => {
       cy.get(':nth-child(10) > .page-link').click()
+      cy.wait(1000)
 
       cy.getByData('Nilah').should('exist').click()
+      cy.wait(1000)
       
       cy.get('.splash').should('exist').then(() => {
         expect(JSON.parse(localStorage.getItem('name'))).to.equal('Nilah')
         expect(JSON.parse(localStorage.getItem('title'))).to.equal('the Joy Unbound')
       })
     })
+
+    it('Check if Role badge redirects to filtered champion list',() => { 
+
+    })
+
 
     it('Check if Local Storage Items are cleared',() => {
 

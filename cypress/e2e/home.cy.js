@@ -28,4 +28,19 @@ describe('Home Page', () => {
     cy.getByData('navButton-maps').should("exist")
   })
 
+  it('Checks if Champions Nav Button is working',() => {
+    cy.visit("http://localhost:3000")
+    cy.getByData('navButton-champions').click()
+    cy.wait(1000)
+    cy.location('pathname').should('eq', '/champions')
+  })
+
+  it('Checks if Champions Nav Button is working',() => {
+    cy.visit("http://localhost:3000")
+    cy.getByData('navButton-items').click()
+    cy.wait(1000)
+    cy.location('pathname').should('eq', '/items')
+
+  })
+
 })

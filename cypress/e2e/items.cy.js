@@ -21,6 +21,8 @@ describe('Items', () => {
 
     it('Check if Zeal exists', () => {
       cy.contains('Zeal').should("exist").click()
+      cy.wait(1000)
+
       cy.contains('Slight bonuses to Critical Strike Chance, Move Speed and Attack Speed')
       cy.contains('150')
       cy.contains('1050')
@@ -28,6 +30,8 @@ describe('Items', () => {
 
     it('Check if Eclipse exists', () => {
       cy.contains('Eclipse').should("exist").click()
+      cy.wait(1000)
+
       cy.contains('Mythic Passive: Grants all other Legendary items Armor Penetration and Move Speed.')
       cy.contains('750')
       cy.contains('3100')
@@ -36,6 +40,8 @@ describe('Items', () => {
 
     it('Filter Item List by Name', () => {
       cy.typeInSearch('pi')
+      cy.wait(1000)
+
       cy.contains('Pickaxe').should("exist")
       cy.contains('Vampiric Scepter').should("exist")
       cy.contains('Spirit Visage').should("exist")
@@ -43,11 +49,15 @@ describe('Items', () => {
 
     it('Search for an item', () => {
       cy.typeInSearch('ravenous')
+      cy.wait(1000)
+
       cy.contains('Ravenous Hydra').should("exist")
     })
 
     it('Search for a non existent item', () => {
       cy.typeInSearch('tax refund')
+      cy.wait(1000)
+
       cy.contains("No Item fits this search crtieria.")
     })
 
