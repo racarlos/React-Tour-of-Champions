@@ -16,6 +16,8 @@ describe('Network Intercepts', () => {
 
     it('162 Champions in Champion.json Network Request', () => { 
         cy.request("http://ddragon.leagueoflegends.com/cdn/12.21.1/data/en_US/champion.json").its('body.data').should((response) => {
+
+            console.log(response)        
             expect(Object.keys(response).length).to.equal(162)
         })
     })
@@ -27,6 +29,8 @@ describe('Network Intercepts', () => {
         const numberOfSkins = 10;
 
         cy.request(`http://ddragon.leagueoflegends.com/cdn/12.21.1/data/en_US/champion/${championName}.json`).its('body.data').should((response) => {
+    
+            console.log(response)        
             expect(response[championName].skins.length).to.equal(numberOfSkins);
         })
     })

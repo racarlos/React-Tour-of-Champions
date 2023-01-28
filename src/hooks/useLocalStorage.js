@@ -1,26 +1,25 @@
 import { useState, useEffect } from "react";
 
-function getSavedValue(key, initialValue){
-    const savedValue = JSON.parse(localStorage.getItem(key));
+function getSavedValue(key, initialValue) {
+  const savedValue = JSON.parse(localStorage.getItem(key));
 
-    if(savedValue){
-        return savedValue;
-    } else if (initialValue instanceof Function){
-        return initialValue()
-    } else {
-        return initialValue
-    }
+  if (savedValue) {
+    return savedValue;
+  } else if (initialValue instanceof Function) {
+    return initialValue();
+  } else {
+    return initialValue;
+  }
 }
 
-export default function useLocalStorage(key, initialValue){
+export default function useLocalStorage(key, initialValue) {
+  const [value, setValue] = useState(() => {
+    return getSavedValue(key, initialValue);
+  });
 
-    const [value, setValue] = useState(() => {
-        return getSavedValue(key, initialValue)
-    })
+  useEffect(() => {
+    localStorage.setItem(key, JSON.stringify(value));
+  }, [value]);
 
-    useEffect(() => {
-        localStorage.setItem(key,JSON.stringify(value))
-    },[value])
-    
-    return [value, setValue]
+  return [value, setValue];
 }
